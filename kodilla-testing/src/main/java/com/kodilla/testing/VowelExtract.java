@@ -20,6 +20,8 @@ public class VowelExtract {
         vovelList.add('O');
         vovelList.add('u');
         vovelList.add('U');
+        vovelList.add('Ę');
+
 
     }
     public String extract(String text) {

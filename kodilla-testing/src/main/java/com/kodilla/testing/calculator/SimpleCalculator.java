@@ -7,4 +7,5 @@ public class SimpleCalculator {
     public int subtractAFromB(int a, int b) {
         return a - b;
     }
+
 }

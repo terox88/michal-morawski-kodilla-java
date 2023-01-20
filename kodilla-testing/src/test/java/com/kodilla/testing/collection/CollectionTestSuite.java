@@ -38,7 +38,9 @@ public class CollectionTestSuite {
 
     //Given
     OddNumbersExterminator exterminator = new OddNumbersExterminator();
-    List<Integer> numbers = Arrays.asList(3, 5, 8, 9, 1, 14, 15);
+    List<Integer> numbers = new ArrayList<Integer>(Arrays.asList(3, 5, 8, 9, 1, 14, 15));
+
+
 
 
     //When
@@ -46,7 +48,7 @@ public class CollectionTestSuite {
     List<Integer> expectedResult = Arrays.asList(8, 14);
 
     //Then
-    Assertions.assertEquals( expectedResult, result);
+    Assertions.assertEquals(expectedResult, result);
 
     }
 }

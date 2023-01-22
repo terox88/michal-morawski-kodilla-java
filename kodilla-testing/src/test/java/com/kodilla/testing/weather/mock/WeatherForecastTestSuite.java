@@ -28,6 +28,7 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
+
     }
 
     @Test

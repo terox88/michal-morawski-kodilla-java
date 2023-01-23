@@ -21,8 +21,11 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        List<Book> bookList = new ArrayList<>();
+        if(libraryDatabase.listBooksInHandsOf(libraryUser).size() == 0 || libraryDatabase.listBooksInHandsOf(libraryUser) == null) {
+            return bookList;
+        }
 
-        return bookList;
+        return bookList = libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }

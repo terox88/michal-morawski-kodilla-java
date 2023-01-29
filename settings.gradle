@@ -3,4 +3,5 @@ include 'kodilla-testing'
 include 'kodilla-testing:calculator'
 findProject(':kodilla-testing:calculator')?.name = 'calculator'
 include 'kodilla-stream'
+include 'kodilla-rps'
 

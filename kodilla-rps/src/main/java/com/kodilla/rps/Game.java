@@ -35,7 +35,7 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         TheOpponent opponent = new TheOpponent();
         String answer;
-        boolean end = true;
+        boolean win = false;
         System.out.println("Enter you name");
         this.name = scanner.nextLine();
         System.out.println("Choose points limits");
@@ -47,7 +47,7 @@ public class Game {
             System.out.println("Choose points limits");
             points = Integer.parseInt(scanner.nextLine());
         }
-        while (end) {
+        while (!win) {
             System.out.println("Make a move\n1 -> Paper\n2 -> Stone\n3 -> Scissors");
             System.out.println("\"x\" for end or \"n\" for new game");
             boolean p1Win = false;
@@ -83,7 +83,7 @@ public class Game {
                     System.out.println("Are you sure you want to quit? \"y\" for yes : \"n\" for no");
                     answer = scanner.nextLine();
                     if (answer.equals("y")) {
-                        end = false;
+                        win = true;
                         result = true;
                     }
                     break;
@@ -107,13 +107,13 @@ public class Game {
                 } else {
                     System.out.println("Opponent wins this round");
                 }
-                if (playerPoints == points || opponentPoints == points) end = false;
-                if (end) {
+                if (playerPoints == points || opponentPoints == points) win = true;
+                if (!win) {
                     System.out.println(name + " points: " + playerPoints);
                     System.out.println("Opponent points: " + opponentPoints);
                 }
 
-                if (!end) {
+                if (win) {
                     System.out.println("Congratulations!!!");
                     if (playerPoints > opponentPoints) {
                         System.out.println(name + " wins");
@@ -142,19 +142,19 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         TheOpponent opponent = new TheOpponent();
         String answer;
-        boolean end = true;
+        boolean win = false;
         System.out.println("Enter you name");
         this.name = scanner.nextLine();
         System.out.println("Choose points limits");
         int points = Integer.parseInt(scanner.nextLine());
         Launcher launcher = new Launcher();
 
-        while (points == 0) {
+        while (points <= 0) {
             System.out.println("Limit must be grater than 0");
             System.out.println("Choose points limits");
             points = Integer.parseInt(scanner.nextLine());
         }
-        while (end) {
+        while (!win) {
             System.out.println("Make a move\n1 -> Paper\n2 -> Stone\n3 -> Scissors\n4 -> Spock\n5 -> Lizard");
             System.out.println("\"x\" for end or \"n\" for new game");
             boolean p1Win = false;
@@ -206,7 +206,7 @@ public class Game {
                     System.out.println("Are you sure you want to quit? \"y\" for yes : \"n\" for no");
                     answer = scanner.nextLine();
                     if (answer.equals("y")) {
-                        end = false;
+                        win = true;
                         result = true;
                     }
                     break;
@@ -230,13 +230,13 @@ public class Game {
                 } else {
                     System.out.println("Opponent wins this round");
                 }
-                if (playerPoints == points || opponentPoints == points) end = false;
-                if (end) {
+                if (playerPoints == points || opponentPoints == points) win = true;
+                if (!win) {
                     System.out.println(name + " points: " + playerPoints);
                     System.out.println("Opponent points: " + opponentPoints);
                 }
 
-                if (!end) {
+                if (win) {
                     System.out.println("Congratulations!!!");
                     if (playerPoints > opponentPoints) {
                         System.out.println(name + " wins");

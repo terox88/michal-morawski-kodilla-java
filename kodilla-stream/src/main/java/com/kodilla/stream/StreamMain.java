@@ -7,6 +7,7 @@ import com.kodilla.stream.forumuser.ForumUser;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -20,6 +21,8 @@ public class StreamMain {
 
         resultMap.entrySet().stream()
                 .forEach(System.out::println);
+
+
     }
 
 

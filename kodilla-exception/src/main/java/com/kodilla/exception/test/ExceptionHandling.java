@@ -11,8 +11,19 @@ public class ExceptionHandling {
         }catch (Exception e) {
             System.out.println("Error: " + e );
         }finally {
-            System.out.println("It was a test for exception");
+            System.out.println("It was a test for an exception");
         }
+        System.out.println("End of the test");
+        System.out.println("\nTest for Flight Search");
+
+        FlightSearch flightSearch = new FlightSearch();
+
+        try {
+            System.out.println(flightSearch.findFlight(new Flight("Warsaw","Cracow")));
+        } catch (RouteNotFoundException r) {
+            System.out.println("Error: No such destination in database");
+        }
+        System.out.println("End of test");
 
     }
 }

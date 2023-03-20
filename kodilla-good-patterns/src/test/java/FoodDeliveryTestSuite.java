@@ -1,6 +1,5 @@
 import com.kodilla.good.patterns.food.delivery.*;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FoodDeliveryTestSuite {
@@ -8,18 +7,9 @@ public class FoodDeliveryTestSuite {
     Producer extraFood = new ExtraFoodShop();
     Producer healthyShop = new HealthyShop();
     Producer glutenFree = new GlutenFreeShop();
+    DeliveryProcessor processor = new DeliveryProcessor();
 
-    @Test
-    void wrongShopTest () {
-        //Given
-        Order order = new Order(bread, extraFood, 12.5);
 
-        //When
-        boolean result = healthyShop.process(order);
-
-        //Then
-        Assertions.assertFalse(result);
-    }
     @Test
     void correctOrdersTest () {
         //Given
@@ -28,9 +18,9 @@ public class FoodDeliveryTestSuite {
         Order order3 = new Order(bread, glutenFree, 12.5);
 
         //When
-        boolean result1 = extraFood.process(order1);
-        boolean result2 = healthyShop.process(order2);
-        boolean result3 = glutenFree.process(order3);
+        boolean result1 = processor.deliveryProcess(order1);
+        boolean result2 = processor.deliveryProcess(order2);
+        boolean result3 = processor.deliveryProcess(order3);
 
         //Then
         Assertions.assertTrue(result1);
@@ -44,7 +34,7 @@ public class FoodDeliveryTestSuite {
         Order order = new Order(bread, healthyShop, 9.0);
 
         //When
-        boolean result = healthyShop.process(order);
+        boolean result = processor.deliveryProcess(order);
 
         //Then
         Assertions.assertFalse(result);

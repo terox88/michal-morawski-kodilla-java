@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SudokuBoard {
-    private final List<SudokuRow> board = new ArrayList<>();
+    private List<SudokuRow> board = new ArrayList<>();
     public final static int BOARD_SIZE = 9;
 
     public SudokuBoard() {
@@ -26,7 +26,7 @@ public class SudokuBoard {
                 if(element.getValue() == -1) {
                     result += "   ";
                 } else {
-                    result += element.getValue();
+                    result += " "  + element.getValue() + " ";
                 }
                 result +="|";
             }
@@ -34,4 +34,16 @@ public class SudokuBoard {
         }
         return result;
     }
+    public SudokuBoard deepCopy() {
+        SudokuBoard clonedBoard = new SudokuBoard();
+        for(int y = 0; y < this.board.size(); y++) {
+            SudokuRow clonedRow = new SudokuRow();
+            for(int x = 0; x < this.board.size(); x++) {
+                clonedRow.getSudokuRow().set(x, new SudokuElement(this.board.get(y).getSudokuRow().get(x).getValue(), this.board.get(y).getSudokuRow().get(x).getPossibleNumbers()));
+            }
+            clonedBoard.getBoard().set(y, clonedRow);
+        }
+        return clonedBoard;
+    }
+
 }

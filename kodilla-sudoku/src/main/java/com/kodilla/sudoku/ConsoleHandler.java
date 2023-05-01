@@ -37,6 +37,6 @@ public class ConsoleHandler {
                     }
                 }
             }
-            return null;
+            return new ArrayList<>();
     }
 }

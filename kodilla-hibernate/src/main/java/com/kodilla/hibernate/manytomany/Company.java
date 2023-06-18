@@ -2,6 +2,7 @@ package com.kodilla.hibernate.manytomany;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,10 @@ import java.util.List;
         name = "Company.findByBegin",
         query = "SELECT * from COMPANIES WHERE LEFT(COMPANY_NAME, 3) = LEFT(:NAME,3)",
         resultClass = Company.class
-
+)
+@NamedQuery(
+        name = "Company.findByPartOfName",
+        query = "from Company WHERE name like :NAME_PART"
 
 )
 @Entity
